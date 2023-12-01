@@ -2,7 +2,7 @@ apiVersion: actions.summerwind.dev/v1alpha1
 kind: RunnerDeployment
 metadata:
   name: sh-runner-deployment
-  namespaces: actions-runner-system-ysg-debug
+  namespace: actions-runner-system-ysg-debug
 spec:
   template:
     spec:
@@ -18,7 +18,7 @@ apiVersion: actions.summerwind.dev/v1alpha1
 kind: HorizontalRunnerAutoscaler
 metadata:
   name: sh-runner-deployment-autoscaler
-  namespaces: actions-runner-system-ysg-debug
+  namespace: actions-runner-system-ysg-debug
 spec:
   scaleTargetRef:
     kind: RunnerDeployment
