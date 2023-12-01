@@ -1,0 +1,10 @@
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+  name: runner-example
+  namespaces: actions-runner-system-ysg-debug
+spec:
+  replicas: 1
+  template:
+    spec:
+      repository: action-runner-demo/eks_ci

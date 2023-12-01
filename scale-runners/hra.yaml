@@ -1,0 +1,31 @@
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+  name: sh-runner-deployment
+  namespaces: actions-runner-system-ysg-debug
+spec:
+  template:
+    spec:
+      repository: action-runner-demo/eks_ci
+      labels:
+        - sh-k8s-runner
+      resources:
+        limits:
+          cpu: 300m
+          memory: 500Mi
+---
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: HorizontalRunnerAutoscaler
+metadata:
+  name: sh-runner-deployment-autoscaler
+  namespaces: actions-runner-system-ysg-debug
+spec:
+  scaleTargetRef:
+    kind: RunnerDeployment
+    name: sh-runner-deployment
+  minReplicas: 1
+  maxReplicas: 4
+  metrics:
+    - type: TotalNumberOfQueuedAndInProgressWorkflowRuns
+      repositoryNames:
+        - action-runner-demo/eks_ci
