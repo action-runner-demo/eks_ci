@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: github-runner
-  namespace: github-runner-ysg-debug
+  namespace: github-runner
   labels:
     app: github-runner
 spec:
