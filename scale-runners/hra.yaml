@@ -8,7 +8,7 @@ spec:
     spec:
       repository: action-runner-demo/eks_ci
       labels:
-        - sh-k8s-runner
+        - self-hosted
       resources:
         limits:
           cpu: 300m

@@ -8,3 +8,9 @@ spec:
   template:
     spec:
       repository: action-runner-demo/eks_ci
+      labels:
+        - self-hosted
+      resources:
+        limits:
+          cpu: 300m
+          memory: 500Mi
